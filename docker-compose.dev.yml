@@ -1,0 +1,21 @@
+# Local development dependencies for the Brume control-plane.
+# Brings up Postgres only; the cluster itself is provided by k3d (see docs).
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: brume
+      POSTGRES_PASSWORD: brume
+      POSTGRES_DB: brume
+    ports:
+      - "5432:5432"
+    volumes:
+      - brume_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U brume"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  brume_pgdata:
