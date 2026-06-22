@@ -66,16 +66,16 @@ claudes-bootstrap/
 │       ├── agents/              # escouade (archi, dev, revue, …)
 │       ├── commands/            # /handoff, /feedback, /doctor
 │       ├── hooks/               # documentés, opt-in
-│       └── plugin.json
-├── stacks/                      # fragments isolés (1 fichier = 1 stack)
-│   ├── angular/
-│   └── spring-boot/
+│       ├── skills/              # profils de stack (fragments isolés)
+│       │   ├── angular/SKILL.md
+│       │   └── spring-boot/SKILL.md
+│       └── .claude-plugin/plugin.json
 ├── wizard/                      # templates déterministes à trous
 └── .github/workflows/           # CI : claude plugin validate + gate d'éval
 ```
 
 **Principes de soutenabilité :**
-- **Stacks = fragments isolés** → ajouter un stack ne touche pas au cœur.
+- **Stacks = fragments isolés** (un `skills/<stack>/SKILL.md` auto-chargé) → ajouter un stack ne touche pas au cœur. Les profils sont embarqués dans le bootstrap car, à l'install, un plugin est copié dans un cache : un chemin externe ne serait pas distribué. L'extraction en **librairie de stacks partagée** entre bootstraps est différée (Phase 7).
 - **Templates déterministes à trous** → le wizard *remplit* des placeholders, il n'*invente* pas.
 - **CI `claude plugin validate`** sur chaque PR + **gate d'éval** (pas de régression).
 - **Note de compatibilité** : version de Claude Code testée.
