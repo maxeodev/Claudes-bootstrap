@@ -69,8 +69,8 @@ claudes-bootstrap/
 │       ├── skills/              # profils de stack (fragments isolés)
 │       │   ├── angular/SKILL.md
 │       │   └── spring-boot/SKILL.md
+│       ├── templates/           # templates déterministes à trous (wizard)
 │       └── .claude-plugin/plugin.json
-├── wizard/                      # templates déterministes à trous
 └── .github/workflows/           # CI : claude plugin validate + gate d'éval
 ```
 
