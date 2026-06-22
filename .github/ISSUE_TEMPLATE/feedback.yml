@@ -1,0 +1,34 @@
+name: Retour / Feedback
+description: Bug, idée, ou profil de stack manquant. / Bug, idea, or missing stack profile.
+labels: ["feedback"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci pour ton retour ! Aucune donnée n'est collectée automatiquement — tu publies ce que tu veux.
+        Thanks for your feedback! No data is collected automatically — you share only what you choose.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Type / Kind
+      options:
+        - Bug
+        - Idée / Idea
+        - Profil de stack manquant / Missing stack profile
+        - Autre / Other
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Détails / Details
+      description: Décris le retour. Pour un bug, indique l'attendu vs l'obtenu. / Describe it. For a bug, expected vs actual.
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: Contexte / Context (optionnel)
+      description: Version de Claude Code, stack, OS. / Claude Code version, stack, OS.
+    validations:
+      required: false
