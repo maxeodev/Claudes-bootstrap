@@ -1,34 +1,63 @@
 # Claudes-bootstrap
 
-> Catalogue open source de **bootstraps Claude Code** pour équipes de développement.
-> Démarrez une escouade IA-augmentée en quelques minutes, adaptée à votre mission et à votre stack.
+**🇬🇧 English** · [🇫🇷 Français](./README.fr.md)
+
+> Open-source catalog of **Claude Code bootstraps** for software teams.
+> Spin up an AI-augmented squad in minutes — tailored to your mission and your stack.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 
-## Pourquoi
+## Why
 
-Configurer Claude Code pour une équipe — agents, commandes, hooks, permissions, intégrations —
-prend du temps et se refait à chaque projet. **Claudes-bootstrap** fournit des configurations
-prêtes à l'emploi, **auditables** et **sans télémétrie**, qu'on installe et qu'on adapte.
+Configuring Claude Code for a team — agents, commands, hooks, permissions, integrations — takes
+time and gets redone on every project. **Claudes-bootstrap** ships ready-to-use, **auditable**,
+**telemetry-free** configurations you install and adapt.
 
-## Principes
+## Principles
 
-- **Aucune télémétrie.** Rien ne quitte votre machine. Le feedback est **opt-in** (`/feedback`).
-- **Moindre privilège.** Les permissions par défaut sont minimales et documentées.
-- **Open source (MIT).** Tout est auditable.
-- **Soutenable.** Les stacks sont des fragments isolés : en ajouter un ne touche pas au cœur.
+- **No telemetry.** Nothing leaves your machine. Feedback is **opt-in** (`/feedback`).
+- **Least privilege.** Default permissions are minimal and documented.
+- **Open source (MIT).** Everything is auditable.
+- **Sustainable.** Stacks are isolated fragments: adding one doesn't touch the core.
 
-## État
+## What makes it different
 
-🚧 **v1 en construction** — tranche verticale :
-**Squad de réalisation** + stacks **Angular** & **Spring Boot** + **Handoff** + **wizard** + **`/feedback`**.
+The space is crowded with massive piles of generic agents. We deliberately go the other way:
 
-Voir le plan détaillé : [`docs/PLAN.md`](./docs/PLAN.md).
+| The current market | Our angle |
+|---|---|
+| 100+ generic agents | **Lean squads by mission** (4 considered agents) |
+| "Install and figure it out" | **Wizard + Handoff** (need → spec → delivery) |
+| Quality unproven | **Eval gate** in CI *(coming)* |
+| Security absent | **Zero telemetry + least privilege** (enterprise posture) |
 
-## Contribuer
+## Quick start
 
-Voir [`CONTRIBUTING.md`](./CONTRIBUTING.md). Sécurité : [`SECURITY.md`](./SECURITY.md).
+```text
+/plugin marketplace add maxeodev/Claudes-bootstrap
+/plugin install squad-realisation@claudes-bootstrap
+/setup      # least-privilege config tailored to your stack
+/doctor     # verify the install
+/handoff "Your need or a Jira ticket key"
+```
 
-## Licence
+Full guide: [`docs/getting-started.md`](./docs/getting-started.md).
+
+## Available bootstraps
+
+| Bootstrap | Description |
+|---|---|
+| [`squad-realisation`](./bootstraps/squad-realisation/README.md) | Delivery squad: architect, developer, reviewer, integrator. Stacks: Angular, Spring Boot. |
+
+## Status
+
+🚧 **v1 in progress** — vertical slice: **Squad de réalisation** + **Angular** & **Spring Boot** +
+**Handoff** + **wizard** + **`/feedback`**. See the plan: [`docs/PLAN.md`](./docs/PLAN.md).
+
+## Contributing
+
+See [`CONTRIBUTING.md`](./CONTRIBUTING.md). Security: [`SECURITY.md`](./SECURITY.md).
+
+## License
 
 [MIT](./LICENSE).

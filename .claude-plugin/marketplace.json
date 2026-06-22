@@ -1,0 +1,16 @@
+{
+  "name": "claudes-bootstrap",
+  "description": "Bootstraps Claude Code opinionnés pour équipes de développement : escouades resserrées, moindre privilège, zéro télémétrie.",
+  "version": "0.1.0",
+  "owner": {
+    "name": "Claudes-bootstrap contributors",
+    "url": "https://github.com/maxeodev/Claudes-bootstrap"
+  },
+  "plugins": [
+    {
+      "name": "squad-realisation",
+      "source": "./bootstraps/squad-realisation",
+      "description": "Escouade opinionnée pour la réalisation logicielle (architecte, développeur, relecteur, intégrateur), profils de stack Angular & Spring Boot, /handoff, /setup, /doctor, /feedback. Permissions au moindre privilège, zéro télémétrie."
+    }
+  ]
+}
