@@ -1,0 +1,35 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate-plugins:
+    name: claude plugin validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Squelette Phase 0 : valide chaque plugin présent.
+      # Les étapes d'installation de Claude Code et le gate d'éval
+      # seront branchés au fur et à mesure des phases 1+.
+      - name: Vérifier la syntaxe des manifestes JSON
+        run: |
+          found=0
+          while IFS= read -r p; do
+            found=1
+            echo "→ $p"
+            python3 -m json.tool "$p" > /dev/null
+          done < <(find . -path ./.git -prune -o -name 'plugin.json' -print -o -name 'marketplace.json' -print)
+          if [ "$found" = "0" ]; then
+            echo "Aucun manifeste trouvé."
+          fi
+
+      # Étape complète (à activer une fois Claude Code installable en CI) :
+      # - name: claude plugin validate --strict
+      #   run: |
+      #     for p in $(find bootstraps -name plugin.json); do
+      #       claude plugin validate "$(dirname "$(dirname "$p")")" --strict
+      #     done

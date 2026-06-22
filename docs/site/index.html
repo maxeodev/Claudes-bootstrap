@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Claudes-bootstrap — Claude Code bootstraps for software teams</title>
+  <meta name="description" content="Open-source catalog of Claude Code bootstraps. Lean squads, least-privilege, zero telemetry." />
+  <style>
+    :root { --bg:#0d1117; --card:#161b22; --border:#30363d; --fg:#e6edf3; --muted:#8b949e; --accent:#58a6ff; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:var(--fg); line-height:1.6; }
+    header { max-width:880px; margin:0 auto; padding:3rem 1.25rem 1rem; }
+    .lang { float:right; font-size:.9rem; }
+    .lang button { background:none; border:1px solid var(--border); color:var(--muted); border-radius:6px; padding:.25rem .6rem; cursor:pointer; }
+    .lang button.active { color:var(--fg); border-color:var(--accent); }
+    h1 { font-size:2rem; margin:.5rem 0; }
+    .tagline { color:var(--muted); font-size:1.15rem; }
+    .principles { max-width:880px; margin:1.5rem auto; padding:0 1.25rem; display:flex; flex-wrap:wrap; gap:.5rem; }
+    .pill { background:var(--card); border:1px solid var(--border); border-radius:999px; padding:.3rem .8rem; font-size:.85rem; color:var(--muted); }
+    main { max-width:880px; margin:1rem auto 4rem; padding:0 1.25rem; }
+    h2 { font-size:1.3rem; border-bottom:1px solid var(--border); padding-bottom:.4rem; }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:1.25rem; margin:1rem 0; }
+    .card h3 { margin:.2rem 0; }
+    .card .badges { margin:.5rem 0; }
+    .badge { display:inline-block; font-size:.75rem; padding:.15rem .5rem; border-radius:6px; margin-right:.4rem; }
+    .badge.ok { background:#196c2e33; color:#3fb950; border:1px solid #3fb95055; }
+    .badge.soon { background:#9e6a0333; color:#d29922; border:1px solid #d2992255; }
+    code { background:#0d1117; border:1px solid var(--border); border-radius:6px; padding:.1rem .4rem; font-size:.85rem; }
+    pre { background:#0d1117; border:1px solid var(--border); border-radius:8px; padding:.9rem; overflow:auto; }
+    a { color:var(--accent); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    footer { max-width:880px; margin:2rem auto; padding:1rem 1.25rem; color:var(--muted); border-top:1px solid var(--border); font-size:.85rem; }
+    [data-lang] { display:none; }
+    html[lang="en"] [data-lang="en"], html[lang="fr"] [data-lang="fr"] { display:revert; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="lang">
+      <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+      <button id="btn-fr" onclick="setLang('fr')">FR</button>
+    </div>
+    <h1>Claudes-bootstrap</h1>
+    <p class="tagline">
+      <span data-lang="en">Open-source catalog of Claude Code bootstraps for software teams.</span>
+      <span data-lang="fr">Catalogue open source de bootstraps Claude Code pour équipes de développement.</span>
+    </p>
+  </header>
+
+  <section class="principles">
+    <span class="pill">🔒 <span data-lang="en">Zero telemetry</span><span data-lang="fr">Zéro télémétrie</span></span>
+    <span class="pill">🛡️ <span data-lang="en">Least privilege</span><span data-lang="fr">Moindre privilège</span></span>
+    <span class="pill">📖 <span data-lang="en">Open source (MIT)</span><span data-lang="fr">Open source (MIT)</span></span>
+    <span class="pill">♻️ <span data-lang="en">Sustainable</span><span data-lang="fr">Soutenable</span></span>
+  </section>
+
+  <main>
+    <h2><span data-lang="en">Available bootstraps</span><span data-lang="fr">Bootstraps disponibles</span></h2>
+
+    <div class="card">
+      <h3>squad-realisation</h3>
+      <div class="badges">
+        <span class="badge ok">✓ <span data-lang="en">plugin validated</span><span data-lang="fr">plugin validé</span></span>
+        <span class="badge soon">◷ <span data-lang="en">eval score — coming</span><span data-lang="fr">score d'éval — à venir</span></span>
+      </div>
+      <p>
+        <span data-lang="en">Delivery squad: architect, developer, reviewer, integrator — least-privilege permissions. Stacks: Angular, Spring Boot. Commands: <code>/handoff</code>, <code>/setup</code>, <code>/doctor</code>, <code>/feedback</code>.</span>
+        <span data-lang="fr">Escouade de réalisation : architecte, développeur, relecteur, intégrateur — permissions au moindre privilège. Stacks : Angular, Spring Boot. Commandes : <code>/handoff</code>, <code>/setup</code>, <code>/doctor</code>, <code>/feedback</code>.</span>
+      </p>
+      <pre><code>/plugin marketplace add maxeodev/Claudes-bootstrap
+/plugin install squad-realisation@claudes-bootstrap</code></pre>
+      <p>
+        <a href="https://github.com/maxeodev/Claudes-bootstrap/blob/main/bootstraps/squad-realisation/README.md" data-lang="en">Documentation →</a>
+        <a href="https://github.com/maxeodev/Claudes-bootstrap/blob/main/bootstraps/squad-realisation/README.fr.md" data-lang="fr">Documentation →</a>
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <span data-lang="en">No telemetry. Everything is auditable. <a href="https://github.com/maxeodev/Claudes-bootstrap">Source on GitHub</a>.</span>
+    <span data-lang="fr">Aucune télémétrie. Tout est auditable. <a href="https://github.com/maxeodev/Claudes-bootstrap">Source sur GitHub</a>.</span>
+  </footer>
+
+  <script>
+    function setLang(l) {
+      document.documentElement.lang = l;
+      document.getElementById('btn-en').classList.toggle('active', l === 'en');
+      document.getElementById('btn-fr').classList.toggle('active', l === 'fr');
+    }
+    // Default to French if the browser prefers it.
+    if ((navigator.language || '').toLowerCase().startsWith('fr')) setLang('fr');
+  </script>
+</body>
+</html>
