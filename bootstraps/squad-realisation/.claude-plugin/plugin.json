@@ -1,0 +1,14 @@
+{
+  "name": "squad-realisation",
+  "displayName": "Squad de réalisation",
+  "version": "0.1.0",
+  "description": "Escouade Claude Code opinionnée pour la réalisation logicielle : architecte, développeur, relecteur, intégrateur — permissions au moindre privilège.",
+  "author": {
+    "name": "Claudes-bootstrap contributors",
+    "url": "https://github.com/maxeodev/Claudes-bootstrap"
+  },
+  "homepage": "https://github.com/maxeodev/Claudes-bootstrap",
+  "repository": "https://github.com/maxeodev/Claudes-bootstrap",
+  "license": "MIT",
+  "keywords": ["squad", "realisation", "delivery", "agents", "bootstrap"]
+}

@@ -15,16 +15,21 @@ jobs:
       # Squelette Phase 0 : valide chaque plugin présent.
       # Les étapes d'installation de Claude Code et le gate d'éval
       # seront branchés au fur et à mesure des phases 1+.
-      - name: Lister les bootstraps
+      - name: Vérifier la syntaxe des plugin.json
         run: |
-          if [ -d bootstraps ]; then
-            find bootstraps -name plugin.json -print
-          else
-            echo "Aucun bootstrap pour l'instant (Phase 0)."
+          found=0
+          while IFS= read -r p; do
+            found=1
+            echo "→ $p"
+            python3 -m json.tool "$p" > /dev/null
+          done < <(find bootstraps -name plugin.json)
+          if [ "$found" = "0" ]; then
+            echo "Aucun plugin.json trouvé."
           fi
 
-      # - name: Valider les plugins
+      # Étape complète (à activer une fois Claude Code installable en CI) :
+      # - name: claude plugin validate --strict
       #   run: |
       #     for p in $(find bootstraps -name plugin.json); do
-      #       claude plugin validate "$(dirname "$p")"
+      #       claude plugin validate "$(dirname "$(dirname "$p")")" --strict
       #     done

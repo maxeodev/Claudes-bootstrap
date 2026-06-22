@@ -28,6 +28,28 @@ Tout est **auditable, open source (MIT), sans télémétrie**.
 
 ---
 
+## 2bis. État de l'art & différenciation
+
+Le terrain est déjà peuplé (veille juin 2026). Ce qui domine : des **collections massives d'agents
+génériques** — [wshobson/agents](https://github.com/wshobson/agents) (192 agents),
+[VoltAgent](https://github.com/VoltAgent/awesome-claude-code-subagents) (100+),
+[jamsajones/claude-squad](https://github.com/jamsajones/claude-squad) (29+),
+[mylee04](https://github.com/mylee04/claude-code-subagents) (équipe générée selon le stack) — recensées
+par des annuaires ([claudemarketplaces.com](https://claudemarketplaces.com/), aitmpl, awesomeclaude).
+
+**On n'invente pas la catégorie.** Notre survie vient de l'exécution sur 4 axes que le marché néglige :
+
+| Le marché actuel | Notre angle (assumé) |
+|---|---|
+| 100+ agents génériques empilés | **Escouades resserrées par mission** (4 agents pensés) |
+| « Installe et débrouille-toi » | **Wizard + Handoff** (besoin → spec → réalisation) |
+| Qualité non prouvée | **Gate d'éval** en CI |
+| Sécurité absente | **Zéro télémétrie + moindre privilège** (posture DSI) |
+
+Positionnement : **opinionné + entreprise + qualité prouvée**, pas « encore une collection ».
+
+---
+
 ## 3. Architecture cible
 
 ```
