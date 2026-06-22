@@ -93,36 +93,42 @@ Une fois solide, ajouter TMA/DevOps/Data et d'autres stacks devient **mécanique
 
 ## 5. Phases
 
-### Phase 0 — Fondations  ← *en cours*
+### Phase 0 — Fondations  ✅
 - `LICENSE` (MIT), `README.md`, `SECURITY.md`, `CONTRIBUTING.md`.
 - Structure de dossiers + conventions de **nommage court** des plugins.
-- Squelette CI `.github/workflows/` (`claude plugin validate`).
+- CI `.github/workflows/` (vérif syntaxe des manifestes).
 
-### Phase 1 — Bootstrap « Squad de réalisation »
-- `plugin.json` + escouade d'agents (archi, dev, revue, intégration).
+### Phase 1 — Bootstrap « Squad de réalisation »  ✅
+- `plugin.json` + escouade d'agents (architecte, developpeur, relecteur, integrateur).
 - Permissions **moindre privilège** par défaut.
 
-### Phase 2 — Profils de stack (fragments)
-- `stacks/angular/` + `stacks/spring-boot/`.
+### Phase 2 — Profils de stack (fragments)  ✅
+- `skills/angular/` + `skills/spring-boot/` embarqués dans le bootstrap.
 
-### Phase 3 — Le Handoff
+### Phase 3 — Le Handoff  ✅
 - Commande `/handoff` : besoin → spec actionnable.
 - **MCP Jira optionnel** + **mode dégradé** (ticket collé à la main si pas de creds).
 
-### Phase 4 — Wizard d'installation
-- Templates déterministes à trous.
+### Phase 4 — Wizard d'installation  ✅
+- `/setup` : templates déterministes à trous, écrit `.claude/settings.json` après accord.
 - Commande **`/doctor`** : vérifie que le setup est correct.
 
-### Phase 5 — Feedback opt-in
-- Commande **`/feedback`** : ouvre une issue GitHub préremplie, l'utilisateur valide ce qui part.
+### Phase 5 — Feedback opt-in  ✅
+- Commande **`/feedback`** : prépare une issue GitHub préremplie, l'utilisateur publie lui-même.
 
-### Phase 6 — Galerie
-- Site GitHub Pages + **1 carte** + **badges de score d'éval**.
+### Phase 6 — Galerie & doc bilingue  ✅
+- `marketplace.json` (repo installable), galerie GitHub Pages (carte + badges),
+  documentation **EN/FR** (READMEs, getting-started).
 
-### Phase 7 — Communauté & évolution  *(continu)*
-- **Agent curateur** : propose des **PR uniquement** (humain dans la boucle), **gate d'éval avant merge**.
-- Soumission à la **marketplace communautaire** d'Anthropic.
-- Note de compatibilité maintenue.
+### Phase 7 — Communauté & évolution  *(continu)*  ✅ *(socle posé)*
+- **Agent curateur** (`.claude/agents/curateur.md`) : propose des **PR uniquement** (humain dans
+  la boucle), **gate d'éval avant de proposer**, lecture seule.
+- **Gate d'éval** : `evals/` (structurel via `claude plugin validate --strict` + cas comportementaux).
+- **Note de compatibilité** : `COMPATIBILITY.md`. **Publication** : `docs/publishing.md`.
+
+> **v1 (tranche verticale) complète** : la boucle install → `/setup` → `/handoff` → réalisation →
+> `/feedback` est en place et validée. La suite = élargir (TMA/DevOps/Data, autres stacks) en
+> répliquant les fragments, et brancher l'exécution automatisée des évals en CI.
 
 ---
 
