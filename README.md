@@ -12,7 +12,7 @@ from 1 to N nodes.
 
 - **Résilience** — multi-replica by default, health probes, pod disruption
   budgets, node spreading, zero-downtime rollouts with automatic rollback,
-  Postgres backups.
+  replicated storage (Longhorn), backups.
 - **Auto-scaling** — per-app Horizontal Pod Autoscaler (CPU/RAM) with
   configurable min/max replicas.
 - **Observabilité & Alerting** — Prometheus metrics, Grafana dashboards, Loki
@@ -25,9 +25,11 @@ from 1 to N nodes.
 |---|---|
 | Orchestration | k3s |
 | Control-plane | Go (`chi`) + PostgreSQL |
-| Image build | Kaniko (in-cluster Job) from a Dockerfile |
+| Image build | Kaniko (in-cluster Job) from a Dockerfile + Trivy scan |
 | Registry | private in-cluster registry |
+| Storage | Longhorn (replicated, node-independent volumes) |
 | Routing / TLS | Traefik (bundled with k3s) + cert-manager |
+| Managed addons | Postgres / MySQL / Redis per environment |
 | Observability | Prometheus + Grafana + Loki + Alertmanager |
 | Web UI | Go + `templ` + HTMX |
 
